@@ -137,10 +137,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         a:hover {
             text-decoration: underline;
         }
+
+        .logo {
+            margin-bottom: 20px;
+            max-width: 150px;
+            height: auto;
+        }
     </style>
 </head>
 <body>
     <div class="login-container">
+        <img src="IMG/logo.png" alt="Logo" class="logo">
         <h1>Login</h1>
         <?php if (!empty($error)) echo "<p class='error'>$error</p>"; ?>
         <form method="POST" action="">
