@@ -43,3 +43,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['compra'])) {
     $success_message = "Acquisto effettuato con successo!";
     $carrello_vuoto = true;
 }
+
+?>
