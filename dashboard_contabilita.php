@@ -64,3 +64,161 @@ $query = "SELECT buste_paga.*, utenti.nome, utenti.cognome, utenti.mansione
 $stmt = $pdo->query($query);
 $buste_paga = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
+
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Contabilità</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select, input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .logout-btn {
+            display: block;
+            text-align: right;
+            margin-bottom: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .logout-btn:hover {
+            text-decoration: underline;
+        }
+
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard Contabilità</h1>
+        <a href="logout.php" class="logout-btn">Logout</a>
+
+        <h2>Aggiungi Busta Paga</h2>
+        <?php if (!empty($success_message)): ?>
+            <p class="success"><?= $success_message ?></p>
+        <?php elseif (!empty($error_message)): ?>
+            <p class="error"><?= $error_message ?></p>
+        <?php endif; ?>
+        <form method="POST" action="">
+            <label for="id_user">Seleziona Dipendente:</label>
+            <select name="id_user" id="id_user" required>
+                <option value="">-- Seleziona Dipendente --</option>
+                <?php foreach ($dipendenti as $dipendente): ?>
+                    <option value="<?= $dipendente['id'] ?>">
+                        <?= htmlspecialchars($dipendente['nome'] . ' ' . $dipendente['cognome'] . ' - ' . $dipendente['mansione']) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+
+            <label for="data_stipendio">Data Stipendio:</label>
+            <input type="date" name="data_stipendio" id="data_stipendio" required>
+
+            <label for="ore_mensili">Ore Mensili:</label>
+            <input type="number" name="ore_mensili" id="ore_mensili" required>
+
+            <button type="submit">Aggiungi</button>
+        </form>
+
+        <h2>Elenco Buste Paga</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Mansione</th>
+                    <th>Data Stipendio</th>
+                    <th>Ore Mensili</th>
+                    <th>Stipendio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($buste_paga as $busta): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($busta['id']) ?></td>
+                        <td><?= htmlspecialchars($busta['nome']) ?></td>
+                        <td><?= htmlspecialchars($busta['cognome']) ?></td>
+                        <td><?= htmlspecialchars($busta['mansione']) ?></td>
+                        <td><?= htmlspecialchars($busta['data_stipendio']) ?></td>
+                        <td><?= htmlspecialchars($busta['ore_mensili']) ?></td>
+                        <td>€<?= number_format($busta['stipendio'], 2) ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
