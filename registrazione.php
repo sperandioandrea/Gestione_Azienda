@@ -46,7 +46,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
+            background-color: #000; /* Sfondo nero */
+            color: #fff; /* Testo bianco */
             margin: 0;
             padding: 0;
             display: flex;
@@ -56,10 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .registration-container {
-            background-color: #fff;
+            background-color: #1a1a1a; /* Grigio scuro */
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
             width: 100%;
             max-width: 500px;
             text-align: center;
@@ -84,15 +85,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         input, select {
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #ccc;
+            border: 1px solid #444; /* Bordo grigio scuro */
             border-radius: 5px;
             font-size: 14px;
+            background-color: #333; /* Sfondo grigio scuro */
+            color: #fff; /* Testo bianco */
+        }
+
+        input:focus, select:focus {
+            border-color: #6200ea; /* Viola scuro */
+            outline: none;
         }
 
         button {
             padding: 10px;
-            background-color: #007bff;
-            color: white;
+            background-color: #6200ea; /* Viola scuro */
+            color: #fff; /* Testo bianco */
             border: none;
             border-radius: 5px;
             font-size: 16px;
@@ -100,7 +108,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #4b00b5; /* Viola più scuro */
+        }
+
+        #mansione-field {
+            display: none;
         }
     </style>
     <script>
@@ -141,12 +153,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
 
-            <div id="mansione-field" style="display: none;">
+            <div id="mansione-field">
                 <label for="mansione">Mansione:</label>
                 <select id="mansione" name="mansione">
                     <option value="magazziniere">Magazziniere</option>
                     <option value="gestore vendite">Gestore Vendite</option>
-                    <option value="gestore contabilita">Gestore Contabilita</option>
+                    <option value="gestore contabilita">Gestore Contabilità</option>
                     <option value="dirigente">Dirigente</option>
                 </select>
             </div>
