@@ -69,7 +69,7 @@
         <p>La tua registrazione è stata completata con successo.</p>
         <p>Verrai reindirizzato alla pagina di login entro pochi secondi.</p>
         <p>Se non vieni reindirizzato, <a href="login.php">clicca qui</a>.</p>
-        <p class="note">Nota: Se hai problemi, contatta il supporto.</p>
+      
     </div>
 </body>
 </html>
