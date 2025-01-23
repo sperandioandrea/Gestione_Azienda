@@ -61,7 +61,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
+            background-color: #000; /* Sfondo nero */
+            color: #fff; /* Testo bianco */
             margin: 0;
             padding: 0;
             display: flex;
@@ -71,10 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .login-container {
-            background-color: #fff;
+            background-color: #1a1a1a; /* Grigio scuro */
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
             width: 100%;
             max-width: 400px;
             text-align: center;
@@ -83,6 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         h1 {
             font-size: 24px;
             margin-bottom: 20px;
+            color: #fff; /* Testo bianco */
         }
 
         form {
@@ -94,28 +96,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             text-align: left;
             margin-bottom: 8px;
             font-weight: bold;
+            color: #ccc; /* Grigio chiaro per il testo */
         }
 
         input {
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #ccc;
+            border: 1px solid #444; /* Grigio scuro per i bordi */
             border-radius: 5px;
             font-size: 14px;
+            background-color: #000; /* Sfondo nero */
+            color: #fff; /* Testo bianco */
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #6c63ff; /* Viola chiaro per il focus */
         }
 
         button {
             padding: 10px;
-            background-color: #007bff;
+            background-color: #6c63ff; /* Viola scuro */
             color: white;
             border: none;
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #5a53d1; /* Colore viola più chiaro */
         }
 
         .error {
@@ -130,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         a {
-            color: #007bff;
+            color: #6c63ff; /* Viola per i link */
             text-decoration: none;
         }
 
