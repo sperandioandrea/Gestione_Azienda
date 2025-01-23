@@ -28,7 +28,6 @@ $buste_paga = $stmt_buste_paga->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -37,8 +36,9 @@ $buste_paga = $stmt_buste_paga->fetchAll(PDO::FETCH_ASSOC);
     <title>Dashboard Dirigente</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
             margin: 0;
             padding: 20px;
         }
@@ -46,15 +46,15 @@ $buste_paga = $stmt_buste_paga->fetchAll(PDO::FETCH_ASSOC);
         .container {
             max-width: 1200px;
             margin: auto;
-            background-color: #fff;
+            background-color: #222;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
         }
 
         h1, h2 {
             text-align: center;
-            color: #333;
+            color: #fff;
         }
 
         table {
@@ -66,26 +66,41 @@ $buste_paga = $stmt_buste_paga->fetchAll(PDO::FETCH_ASSOC);
         th, td {
             padding: 12px;
             text-align: left;
-            border: 1px solid #ddd;
+            border: 1px solid #444;
         }
 
         th {
-            background-color: #007bff;
-            color: white;
+            background-color: #f4c542;
+            color: #000;
+        }
+
+        tr:nth-child(even) {
+            background-color: #333;
+        }
+
+        tr:hover {
+            background-color: #444;
         }
 
         .logout-btn {
-            display: inline-block;
-            margin: 20px 0;
-            padding: 10px 20px;
-            background-color: #dc3545;
-            color: white;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 12px 25px;
+            background-color: #555;
+            color: #fff;
             text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
             border-radius: 5px;
         }
 
         .logout-btn:hover {
-            background-color: #c82333;
+            background-color: #666;
+        }
+
+        .table-container {
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -94,75 +109,82 @@ $buste_paga = $stmt_buste_paga->fetchAll(PDO::FETCH_ASSOC);
         <h1>Dashboard Dirigente</h1>
         <a href="logout.php" class="logout-btn">Logout</a>
 
-        <h2>Dipendenti</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Cognome</th>
-                    <th>Mansione</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($dipendenti as $dipendente): ?>
+        <div class="table-container">
+            <h2>Dipendenti</h2>
+            <table>
+                <thead>
                     <tr>
-                        <td><?= htmlspecialchars($dipendente['nome']) ?></td>
-                        <td><?= htmlspecialchars($dipendente['cognome']) ?></td>
-                        <td><?= htmlspecialchars($dipendente['mansione']) ?></td>
-                        <td><?= htmlspecialchars($dipendente['email']) ?></td>
+                        <th>Nome</th>
+                        <th>Cognome</th>
+                        <th>Mansione</th>
+                        <th>Email</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php foreach ($dipendenti as $dipendente): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($dipendente['nome']) ?></td>
+                            <td><?= htmlspecialchars($dipendente['cognome']) ?></td>
+                            <td><?= htmlspecialchars($dipendente['mansione']) ?></td>
+                            <td><?= htmlspecialchars($dipendente['email']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
 
-        <h2>Prodotti in Magazzino</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome Prodotto</th>
-                    <th>Quantità Disponibile</th>
-                    <th>Prezzo Unitario (€)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($prodotti_magazzino as $prodotto): ?>
+        <div class="table-container">
+            <h2>Prodotti in Magazzino</h2>
+            <table>
+                <thead>
                     <tr>
-                        <td><?= htmlspecialchars($prodotto['nome_prodotto']) ?></td>
-                        <td><?= htmlspecialchars($prodotto['quantita']) ?></td>
-                        <td><?= number_format($prodotto['prezzo'], 2) ?></td>
+                        <th>Nome Prodotto</th>
+                        <th>Quantità Disponibile</th>
+                        <th>Prezzo Unitario (€)</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php foreach ($prodotti_magazzino as $prodotto): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($prodotto['nome_prodotto']) ?></td>
+                            <td><?= htmlspecialchars($prodotto['quantita']) ?></td>
+                            <td><?= number_format($prodotto['prezzo'], 2) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
 
-        <h2>Elenco Buste Paga</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Cognome</th>
-                    <th>Mansione</th>
-                    <th>Data Stipendio</th>
-                    <th>Ore Mensili</th>
-                    <th>Stipendio</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($buste_paga as $busta): ?>
+        <div class="table-container">
+            <h2>Elenco Buste Paga</h2>
+            <table>
+                <thead>
                     <tr>
-                        <td><?= htmlspecialchars($busta['id']) ?></td>
-                        <td><?= htmlspecialchars($busta['nome']) ?></td>
-                        <td><?= htmlspecialchars($busta['cognome']) ?></td>
-                        <td><?= htmlspecialchars($busta['mansione']) ?></td>
-                        <td><?= htmlspecialchars($busta['data_stipendio']) ?></td>
-                        <td><?= htmlspecialchars($busta['ore_mensili']) ?></td>
-                        <td>€<?= number_format($busta['stipendio'], 2) ?></td>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Cognome</th>
+                        <th>Mansione</th>
+                        <th>Data Stipendio</th>
+                        <th>Ore Mensili</th>
+                        <th>Stipendio</th>
                     </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <?php foreach ($buste_paga as $busta): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($busta['id']) ?></td>
+                            <td><?= htmlspecialchars($busta['nome']) ?></td>
+                            <td><?= htmlspecialchars($busta['cognome']) ?></td>
+                            <td><?= htmlspecialchars($busta['mansione']) ?></td>
+                            <td><?= htmlspecialchars($busta['data_stipendio']) ?></td>
+                            <td><?= htmlspecialchars($busta['ore_mensili']) ?></td>
+                            <td>€<?= number_format($busta['stipendio'], 2) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
+
