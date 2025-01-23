@@ -47,6 +47,7 @@ try {
 
 
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -54,49 +55,57 @@ try {
     <title>Dashboard Gestore Vendite</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: white;
             margin: 0;
             padding: 0;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         h1 {
             text-align: center;
-            color: #007bff;
+            color: #FFD700; /* Giallo per il titolo */
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-family: 'Helvetica', sans-serif;
         }
 
         .logout {
-            float: right;
-            padding: 10px;
-            background-color: #dc3545;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            padding: 12px 18px;
+            background-color: #333;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
         }
 
         .logout:hover {
-            background-color: #c82333;
+            background-color: #555;
         }
 
         .message {
             text-align: center;
-            color: green;
+            color: #28a745;
             font-weight: bold;
             margin-bottom: 20px;
         }
 
         .error {
             text-align: center;
-            color: red;
+            color: #dc3545;
             font-weight: bold;
             margin-bottom: 20px;
         }
@@ -108,13 +117,13 @@ try {
         }
 
         table th, table td {
-            border: 1px solid #ddd;
-            padding: 10px;
+            border: 1px solid #444;
+            padding: 12px;
             text-align: center;
         }
 
         table th {
-            background-color: #007bff;
+            background-color: #333;
             color: white;
         }
 
@@ -126,10 +135,19 @@ try {
 
         .edit-form input {
             margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #444;
+            background-color: #2c2c2c;
+            color: white;
+        }
+
+        .edit-form input:focus {
+            border-color: #FFD700;
+            outline: none;
         }
 
         button {
-            padding: 10px;
+            padding: 12px;
             background-color: #007bff;
             color: white;
             border: none;
@@ -194,3 +212,4 @@ try {
     </div>
 </body>
 </html>
+
