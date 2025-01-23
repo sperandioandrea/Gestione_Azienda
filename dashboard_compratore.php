@@ -38,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_prodotto']) && iss
 }
 
 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -48,8 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_prodotto']) && iss
     <title>Dashboard Compratore</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
             margin: 0;
             padding: 20px;
         }
@@ -57,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_prodotto']) && iss
         .container {
             max-width: 800px;
             margin: auto;
-            background-color: #fff;
+            background-color: #333;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -65,7 +66,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_prodotto']) && iss
 
         h1 {
             text-align: center;
-            color: #333;
+            color: #f1c40f; /* Giallo per il titolo */
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #fff;
+            margin-bottom: 10px;
         }
 
         table {
@@ -81,40 +89,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_prodotto']) && iss
         }
 
         th {
-            background-color: #007bff;
-            color: white;
+            background-color: #f39c12; /* Giallo per le intestazioni */
+            color: #fff;
         }
 
         .success {
-            color: green;
+            color: #28a745;
             font-weight: bold;
+            margin: 15px 0;
         }
 
         .error {
-            color: red;
+            color: #e74c3c;
             font-weight: bold;
+            margin: 15px 0;
         }
 
-        .carrello-btn {
+        .carrello-btn, .logout-btn {
             display: inline-block;
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #28a745;
+            background-color: #f39c12; /* Giallo per i bottoni */
             color: white;
             text-decoration: none;
             border-radius: 5px;
             text-align: center;
         }
 
-        .carrello-btn:hover {
-            background-color: #218838;
+        .carrello-btn:hover, .logout-btn:hover {
+            background-color: #f1c40f; /* Colore hover per i bottoni */
+        }
+
+        .logout-btn {
+            background-color: #444; /* Nero chiaro per il bottone logout */
+            font-family: 'Verdana', sans-serif; /* Cambiato il carattere per il logout */
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            padding: 10px 20px;
+            font-size: 1.1em;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Benvenuto nello shop, Compratore</h1>
-        <a href="logout.php" class="carrello-btn">Logout</a>
+        <a href="logout.php" class="logout-btn">Logout</a>
 
         <?php if (!empty($success_message)): ?>
             <p class="success"><?= $success_message ?></p>
@@ -144,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_prodotto']) && iss
                             <form method="POST" action="">
                                 <input type="hidden" name="id_prodotto" value="<?= $prodotto['id'] ?>">
                                 <input type="number" name="quantita" min="1" max="<?= $prodotto['quantita'] ?>" required>
-                                <button type="submit">Aggiungi al carrello</button>
+                                <button type="submit" class="carrello-btn">Aggiungi al carrello</button>
                             </form>
                         </td>
                     </tr>
@@ -156,3 +176,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id_prodotto']) && iss
     </div>
 </body>
 </html>
+
