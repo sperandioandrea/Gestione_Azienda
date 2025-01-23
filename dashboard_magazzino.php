@@ -78,39 +78,43 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Magazzino</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
             margin: 0;
             padding: 0;
+            color: white;
         }
 
         .container {
             max-width: 800px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: #222;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         h1 {
             text-align: center;
-            color: #007bff;
+            color: #FFD700;
         }
 
         .logout {
             float: right;
             padding: 10px;
-            background-color: #dc3545;
+            background-color: #444;
             color: white;
             text-decoration: none;
             border-radius: 5px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
         }
 
         .logout:hover {
-            background-color: #c82333;
+            background-color: #555;
         }
 
         form {
@@ -122,6 +126,7 @@ try {
         label {
             margin-bottom: 8px;
             font-weight: bold;
+            color: #FFD700;
         }
 
         input {
@@ -130,12 +135,14 @@ try {
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 14px;
+            background-color: #333;
+            color: white;
         }
 
         button {
             padding: 10px;
-            background-color: #007bff;
-            color: white;
+            background-color: #FFD700;
+            color: black;
             border: none;
             border-radius: 5px;
             font-size: 16px;
@@ -143,7 +150,7 @@ try {
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #FFC300;
         }
 
         .message {
@@ -173,7 +180,7 @@ try {
         }
 
         table th {
-            background-color: #007bff;
+            background-color: #444;
             color: white;
         }
 
