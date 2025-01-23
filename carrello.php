@@ -57,7 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['compra'])) {
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
+            background-color: #000000;
+            color: #ffffff;
             margin: 0;
             padding: 20px;
         }
@@ -65,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['compra'])) {
         .container {
             max-width: 800px;
             margin: auto;
-            background-color: #fff;
+            background-color: #333333;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -73,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['compra'])) {
 
         h1 {
             text-align: center;
-            color: #333;
+            color: #fff;
         }
 
         table {
@@ -85,16 +86,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['compra'])) {
         th, td {
             padding: 12px;
             text-align: left;
-            border: 1px solid #ddd;
+            border: 1px solid #444444;
         }
 
         th {
-            background-color: #007bff;
+            background-color: #f0ad4e; /* Giallo */
             color: white;
         }
 
         .success {
-            color: green;
+            color: #28a745; /* Verde */
             font-weight: bold;
             text-align: center;
         }
@@ -103,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['compra'])) {
             display: inline-block;
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #28a745;
+            background-color: #f0ad4e; /* Giallo */
             color: white;
             text-decoration: none;
             border-radius: 5px;
@@ -111,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['compra'])) {
         }
 
         .carrello-btn:hover {
-            background-color: #218838;
+            background-color: #e69a38; /* Giallo scuro */
         }
 
         .compra-btn {
@@ -129,11 +130,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['compra'])) {
         .compra-btn:hover {
             background-color: #0056b3;
         }
+
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #555555; /* Nero più chiaro */
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace; /* Font diverso */
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .logout-btn:hover {
+            background-color: #444444;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Il tuo Carrello</h1>
+
+        <a href="logout.php" class="logout-btn">Logout</a>
 
         <?php if (!empty($success_message)): ?>
             <p class="success"><?= $success_message ?></p>
