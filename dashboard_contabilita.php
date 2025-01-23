@@ -76,7 +76,8 @@ $buste_paga = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
+            background-color: #111111; /* sfondo nero */
+            color: white; /* testo bianco */
             margin: 0;
             padding: 0;
         }
@@ -85,13 +86,14 @@ $buste_paga = $stmt->fetchAll(PDO::FETCH_ASSOC);
             width: 80%;
             margin: auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: #222222; /* background scuro per il contenitore */
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         h1, h2, h3 {
             text-align: center;
+            color: #f0f0f0; /* colore del testo giallo chiaro */
         }
 
         form {
@@ -113,13 +115,15 @@ $buste_paga = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         button {
-            background-color: #007bff;
+            background-color: #f0b300; /* giallo per il bottone */
             color: white;
             cursor: pointer;
+            font-family: 'Courier New', Courier, monospace; /* carattere personalizzato */
+            font-size: 16px;
         }
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #e68a00; /* giallo scuro al passaggio del mouse */
         }
 
         table {
@@ -135,7 +139,7 @@ $buste_paga = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         th {
-            background-color: #f4f4f4;
+            background-color: #333333; /* sfondo più scuro per le intestazioni della tabella */
         }
 
         .logout-btn {
@@ -143,21 +147,26 @@ $buste_paga = $stmt->fetchAll(PDO::FETCH_ASSOC);
             text-align: right;
             margin-bottom: 20px;
             text-decoration: none;
-            color: #007bff;
+            color: #999999; /* colore chiaro per il logout */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 18px;
         }
 
         .logout-btn:hover {
             text-decoration: underline;
+            color: #f0b300; /* giallo per il passaggio sopra il logout */
         }
 
         .success {
-            color: green;
+            color: #4CAF50; /* verde per messaggi di successo */
             font-weight: bold;
+            text-align: center;
         }
 
         .error {
-            color: red;
+            color: #f44336; /* rosso per messaggi di errore */
             font-weight: bold;
+            text-align: center;
         }
     </style>
 </head>
